@@ -1,7 +1,9 @@
 // $.Buyme 1.4: author Nazar Tokar * nazarTokar.com * dedushka.org * Copyright 2013-2014
-// updated on 2014-06-30
+// updated on 2014-11-15
 
-jQuery(function($) {
+jQuery.getScript(getScriptFolder("buyme.js")+"js/config.js", function(){
+	buyMe();
+});
 
 function getScriptFolder (e) { // find script folder
 	var scripts = document.getElementsByTagName("script");
@@ -12,12 +14,6 @@ function getScriptFolder (e) { // find script folder
 	}
 	return res.replace("buyme/js", "buyme");
 }
-
-//$(document).ready(function() {
-	$.getScript(getScriptFolder("buyme.js")+"js/config.js", function(){
-		buyMe();
-	});
-//});
 
 function buyMe (){
 	var frmCs = [], frmOs = [], tpl = {};
@@ -193,7 +189,6 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		if ($(".b1c-form .b1c-select").length) { // save selects
 			$(frm).find(".b1c-select").each(function() {
 				frmCs.push($(this).attr("data-bme"));
-				//$(bg).find("[data-bme]").each(function() {
 				frmOs.push($(this).find(":selected").text());
 			});
 		}
@@ -201,7 +196,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		if ($(frm).find(".b1c-checkbox").length) { // save checkboxes
 			$(frm).find("input:checkbox").each(function() {
 				frmCs.push($(this).attr("data-bme"));
-				bool = this.checked ? bmeData["txt.yes"] : bmeData["txt.no"];
+				bool = $(this).is(':checked') ? bmeData["txt.yes"] : bmeData["txt.no"];
 				frmOs.push(bool);
 			});
 		}
@@ -214,10 +209,10 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 		$.getJSON(getScriptFolder("buyme.js")+"lib/send.php", {
 			"contentType": "text/html; charset=utf-8",
-			"prd": bn,
-			"cs[]": frmCs,
-			"os[]": frmOs,
-			"time": cnt
+			"prd" 		: bn,
+			"cs[]" 		: frmCs,
+			"os[]" 		: frmOs,
+			"time" 		: cnt
 		}, function(data) {
 			result(data.cls, data.message);
 			if (data.result == "ok") {
@@ -354,5 +349,3 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		document.cookie = e + "=" + v + "; " + expires;
 	}
 }
-
-}); // $(function($) {...

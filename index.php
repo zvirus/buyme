@@ -13,12 +13,25 @@
 </head>
 <body>
 
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-23131825-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20963398 = new Ya.Metrika({id:20963398, webvisor:true, clickmap:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/20963398" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit?r" + escape(top.document.referrer) + ((typeof(screen)=="undefined")?"" : ";s"+screen.width+"*"+screen.height+"*" + (screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u"+escape(document.URL) + ";h"+escape(document.title.substring(0,80)) + ";" +Math.random();</script>
+
 <div class="navbar-inverse">
 	<div class="container">
 		<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 			<ul class="nav navbar-nav">
 				<li><a href="#settings">Настройка скрипта</a></li>
 				<li><a href="#license">Убрать копирайт</a></li>
+				<li><a href="/scripts">Заказать установку</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a target="_blank" href="http://qbx.me">Форум</a></li>
@@ -30,7 +43,7 @@
 
 <header class="jumbotron subhead">
 	<div class="container text-center">
-		<h1>Buyme <small>1.4</small></h1>
+		<h1><a href="http://dedushka.org/tag/buyme">Buyme</a> <small>1.4</small></h1>
 		<p class="lead">Скрипт оформления заказа за один клик</p>
 	</div>
 </header>
@@ -38,20 +51,29 @@
 <div class="colored"></div>
 
 <div class="container">
+	<div class="dsa text-center">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 728 ded -->
+		<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-7280770907817284" data-ad-slot="6021294753"></ins>
+		<script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+	</div>
+</div>
+
+<div class="container">
 	<div class="row">
-		<div class="col-lg-3">
+		<div class="col-sm-3">
 			<h3>Простой</h3>
 			<p class="grey">Скрипт предельно прост в установке и работе. <a href="http://dedushka.org/kod/5625.html">Установка</a> займет менее 10 минут. </p>
 		</div>
-		<div class="col-lg-3">
+		<div class="col-sm-3">
 			<h3>Универсальный</h3>
 			<p class="grey">Работает на любой платформе: Joomla, Prestashop, Bitrix, Wordpress, Opencart, Webasyst, ModX и любых других, где есть доступ к FTP.</p>
 		</div>
-		<div class="col-lg-3">
+		<div class="col-sm-3">
 			<h3>Удобный</h3>
 			<p class="grey">Уведомления приходят на e-mail и в <a href="http://dedushka.org/kod/3903.html">СМС</a>. В комплекте шаблоны настроек для 5 самых популярных смс-провайдеров и <a href="http://qbx.me/viewtopic.php?f=16&t=108">SMTP</a>-настройка.</p>
 		</div>
-		<div class="col-lg-3">
+		<div class="col-sm-3">
 			<h3>Популярный</h3>
 			<p class="grey">Запущен в 2013-м и работает на нескольких тысячах сайтах.</p>
 		</div>
@@ -194,6 +216,8 @@
 
 	<div class="tab-content">
 		<div class="tab-pane fade in active" id="home">
+			<p>Сначала нужно настроить товар. Для этого любому блоку, который включает в себя название товара и кнопку &laquo;купить&raquo;, присвойте <code>class="b1c-good"</code>. Название товара должно иметь <code>class="b1c-name"</code>. Если у вас есть дополнительные поля (выпадающие списки, текстовые поля и блоки, радиокнопки, чекбоксы, цена товара и т.д.), то каждому полю, которое вы хотите получать в уведомлении, добавьте атрибут <code>data-bme="имя поля"</code>. </p>
+			<p>Это минимально необходимая настройка, теперь можно переходить к настройке самого скрипта.</p> 
 			<p>Все настройки указываются в файле <code>buyme/js/config.js</code>. Чтобы изменить поля, которые появляются в форме, укажите их названия в переменной <code>fields</code> через запятую.
 			<p>Все параметры указываются как свойства объекта <code>bmeData</code> в формате <code>"имя свойства": "значение"</code> и разделенные запятыми. Если это звучит сложно, не расстраивайтесь, ниже есть пример, в котором все понятно. </p>
 
@@ -344,6 +368,15 @@
 	<h3 class="page-header">Помощь</h3>
 
 	<p>Если что-то не получается, вы можете заказать у меня <a href="http://dedushka.org/scripts">установку скрипта</a> на любую CMS. Также разрабатываю другие скрипты на заказ, верстаю. Заинтересован в постоянном удаленном сотрудничестве.</p>
+</div>
+
+<div class="container">
+	<div class="dsa text-center">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 728 ded -->
+		<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-7280770907817284" data-ad-slot="6021294753"></ins>
+		<script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+	</div>
 </div>
 
 <footer>

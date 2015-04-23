@@ -1,7 +1,6 @@
 @import '../lib';
 $blue: #466996;
 $size: 13px;
-$index: 1000;
 
 .b1c-form {
 	@include border-radius(3px);
@@ -13,7 +12,7 @@ $index: 1000;
 	background: #fff;
 	overflow: hidden;
 	width: 350px;
-	z-index: $index;
+	z-index: 1000;
 	textarea {
 		resize: none;
 	}
@@ -27,23 +26,6 @@ $index: 1000;
 		input, textarea, select {
 			outline: none;
 			box-shadow: none !important;
-		}
-	}
-	.b1c-submit, .b1c {
-		@include box-shadow(0, 3px, 0, darken($green, 10%));
-		@include border-radius(3px);
-		padding: 5px 15px;
-		border: 0;
-		background: $green;
-		margin: 0 0 5px 0;
-		color: #fff;
-		outline: 0;
-		&:hover {
-			background: lighten($green, 5%);
-		}
-		&:active {
-			@include box-shadow(0, 0, 0, darken($green, 10%));
-			margin: 5px auto 0;
 		}
 	}
 	.b1c-submit {
@@ -138,7 +120,7 @@ $index: 1000;
 .b1c-bg {
 	@include opacity(50);
 	display: none;
-	z-index: $index -1;
+	z-index: 999;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -161,5 +143,23 @@ $index: 1000;
 			position: relative;
 			margin: 0;
 		}
+	}
+}
+
+.b1c-submit, button.b1c {
+	@include box-shadow(0, 3px, 0, darken($green, 10%));
+	@include border-radius(3px);
+	padding: 5px 15px;
+	border: 0;
+	background: $green;
+	margin: 0 0 5px 0;
+	color: #fff;
+	outline: 0;
+	&:hover {
+		background: lighten($green, 5%);
+	}
+	&:active {
+		@include box-shadow(0, 0, 0, darken($green, 10%));
+		margin: 5px auto 0;
 	}
 }
