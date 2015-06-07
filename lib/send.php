@@ -130,7 +130,7 @@ if ($interval < 20) { // если прошло менее (сек)
 
 		$mess .= "</div>".$l["footer"];
 		
-		$headers  = "Content-type: text/html; charset=utf-8 \r\n"; 
+		$headers  = "Content-type: text/html; charset=utf-8\r\n"; 
 		$headers .= "From: BuyMe 1.4 <".$from.">\r\n"; 
 
 		$sms["msg"] = substr(translit($prd.",".(getOptions(0))), 0, 160);
